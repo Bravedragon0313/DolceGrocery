@@ -26,7 +26,7 @@ import {
 } from '@modules/server.common/interfaces/IProduct';
 import WarehouseProduct from '@modules/server.common/entities/WarehouseProduct';
 import { IGetGeoLocationProductsOptions } from 'graphql/geo-locations/geo-location.resolver';
-
+import { CarriersService } from '@app/@core/data/carriers.service';
 @injectable()
 @routerName('geo-location-products')
 export class GeoLocationsProductsService
@@ -40,7 +40,7 @@ export class GeoLocationsProductsService
 		protected warehousesService: WarehousesService,
 		@inject(GeoLocationsWarehousesService)
 		protected geoLocationsWarehousesService: GeoLocationsWarehousesService
-	) {}
+	) { }
 
 	@observableListener()
 	get(
@@ -212,8 +212,8 @@ export class GeoLocationsProductsService
 		return options.isDeliveryRequired
 			? wProduct.isDeliveryRequired === options.isDeliveryRequired
 			: true && options.isTakeaway
-			? wProduct.isTakeaway === options.isTakeaway
-			: true;
+				? wProduct.isTakeaway === options.isTakeaway
+				: true;
 	}
 
 	private filterBySearchText(wProduct, searchText) {

@@ -123,7 +123,7 @@ export class ApplicationModule implements NestModule, OnModuleInit {
 		private readonly moduleRef: ModuleRef,
 		private readonly command$: CommandBus,
 		private readonly event$: EventBus
-	) {}
+	) { }
 
 	onModuleInit() {
 		// initialize CQRS
@@ -158,7 +158,7 @@ export class ApplicationModule implements NestModule, OnModuleInit {
 		*/
 
 		log.info(
-			`GraphQL playground available at http://localhost:${port}/graphql`
+			`GraphQL playground available at http://localhost/graphql`
 		);
 	}
 
@@ -172,8 +172,8 @@ export class ApplicationModule implements NestModule, OnModuleInit {
 				req,
 			}),
 			playground: {
-				endpoint: `http://localhost:${port}/graphql`,
-				subscriptionEndpoint: `ws://localhost:${port}/subscriptions`,
+				endpoint: `http://localhost/graphql`,
+				subscriptionEndpoint: `ws://localhost/subscriptions`,
 				settings: {
 					'editor.theme': 'dark',
 				},

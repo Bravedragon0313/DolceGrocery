@@ -43,6 +43,6 @@ export async function bootstrapNest(): Promise<void> {
 		module.hot.dispose((_) => app.close());
 	}
 
-	log.info(`Swagger UI available at http://localhost:${port}/api`);
-	console.log(`Swagger UI available at http://localhost:${port}/api`);
+	log.info(`Swagger UI available at http://localhost/api`);
+	console.log(`Swagger UI available at http://localhost/api`);
 }

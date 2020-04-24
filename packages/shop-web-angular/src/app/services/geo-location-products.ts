@@ -9,7 +9,7 @@ import ProductInfo from '@modules/server.common/entities/ProductInfo';
 
 @Injectable()
 export class GeoLocationProductsService {
-	constructor(private readonly apollo: Apollo) {}
+	constructor(private readonly apollo: Apollo) { }
 	geoLocationProductsByPaging(
 		geoLocation,
 		pagingOptions: IPagingOptions,
